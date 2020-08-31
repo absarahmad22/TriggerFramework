@@ -4,5 +4,5 @@ public Interface ITriggerExtension {
                         List<SObject> oldList,
                         Map<Id,sObject> newMap,
                         Map<Id,SObject> oldMap,
-                        RecordUpdaterTrigger updater);
+                        RecordUpdater updater);
 }

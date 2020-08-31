@@ -4,7 +4,7 @@ public with sharing class ContactTriggerHandler implements ITriggerExtension {
                                 List<sObject> oldList,
                                 Map<Id,sObject> newMap,
                                 Map<Id,sObject> oldMap,
-                                RecordUpdaterTrigger updater){
+                                RecordUpdater updater){
         /**Rollups the Number of Contact On Account Object */
         Set<Id> accIds = new Set<Id>();
         if (optype == TriggerOperation.AFTER_INSERT  || optype == TriggerOperation.AFTER_UNDELETE || optype == TriggerOperation.AFTER_UPDATE) {
@@ -26,7 +26,7 @@ public with sharing class ContactTriggerHandler implements ITriggerExtension {
         if (accIds.isEmpty() == false) {
             AggregateResult[] result = [Select AccountId, Count(Id) NumberOfContacts From Contact where AccountId In :accIds Group By AccountId];
             for (AggregateResult record : result) {
-                Account acc = updater.getAccount((Id)record.get('AccountId'));
+                Account acc = (Account)updater.getRecord((Id)record.get('AccountId'));
                 acc.Number_Of_Contacts__c = (Decimal)record.get('NumberOfContacts');    
             }
         }
