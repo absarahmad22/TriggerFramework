@@ -4,8 +4,9 @@
     <name>ApexClass</name>
     <members>ContactTriggerHandler</members>
     <members>ITriggerExtension</members>
-    <members>RecordUpdaterTrigger</members>
+    <members>RecordUpdater</members>
     <members>TriggerExtensionSupport</members>
+    <members>ContactTriggerTest</members>
   </types>
   <types>
     <name>CustomMetadata</name>
