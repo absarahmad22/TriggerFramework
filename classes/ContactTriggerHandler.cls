@@ -1,3 +1,4 @@
+/*Handler Class*/
 public with sharing class ContactTriggerHandler implements ITriggerExtension {
     public void handlerTrigger( TriggerOperation optype, 
                                 List<sObject> newList,
